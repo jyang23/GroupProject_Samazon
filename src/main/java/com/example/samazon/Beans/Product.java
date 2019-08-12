@@ -1,9 +1,10 @@
 package com.example.samazon.Beans;
+
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name="Product_Data")
+@Table(name = "Product_Data")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,7 +37,7 @@ public class Product {
         return id;
     }
 
-    public Product(String name, String description, double price, boolean taxable, String image){
+    public Product(String name, String description, double price, boolean taxable, String image) {
         this.name = name;
         this.description = description;
         this.price = price;

@@ -36,11 +36,11 @@ public class SamController {
 
     @RequestMapping("/confirmation")
     public String confirmationCourses(Model model, Principal principal) {
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         Order order = new Order();
         order = orderRepository.findByUserAndOrdered(user, 0);
-        model.addAttribute("order",order);
-        model.addAttribute("user",user);
+        model.addAttribute("order", order);
+        model.addAttribute("user", user);
         return "confirmation";
     }
 }

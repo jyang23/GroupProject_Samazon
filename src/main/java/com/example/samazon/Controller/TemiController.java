@@ -32,7 +32,7 @@ public class TemiController {
 
     @GetMapping("/add")
     public String testPage(Model model) {
-        Order order=new Order();
+        Order order = new Order();
 //        order.setDate(new Date());
 //        order.setProducts();
 
@@ -50,12 +50,13 @@ public class TemiController {
 //        productRepository.save(product);
         return "redirect:/";
     }
+
     @RequestMapping("/myprofile")
     public String getProfile(Principal principal, Model model) {
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         model.addAttribute("user", user);
         model.addAttribute("myuser", user);
         return "profile";
     }
-    }
+}
 

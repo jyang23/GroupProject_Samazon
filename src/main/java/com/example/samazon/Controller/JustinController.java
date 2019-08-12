@@ -36,24 +36,22 @@ public class JustinController {
 
     //------------------------------------------------------------------------------------------------------------------
     @RequestMapping("/terms")
-    public String index(Model model)
-    {
+    public String index(Model model) {
         return "terms";
     }
+
     //------------------------------------------------------------------------------------------------------------------
     @GetMapping("/shipping")
-    public String shipping(Model model, Principal principal)
-    {
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+    public String shipping(Model model, Principal principal) {
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         model.addAttribute("user", user);
         model.addAttribute("users", user);
         return "shipping";
     }
 
     @PostMapping("/shipping")
-    public String shipping(@RequestParam(name = "result") String id, Model model, Principal principal)
-    {
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+    public String shipping(@RequestParam(name = "result") String id, Model model, Principal principal) {
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         Order order = new Order();
         order = orderRepository.findByUserAndOrdered(user, 0);
         System.out.println("Hello");
@@ -70,9 +68,9 @@ public class JustinController {
 //            order.setShipping(7.99);
 //            orderRepository.save(order);
 //        }
-            order.setShipping_method("Standard Shipping");
-            order.setShipping(7.99);
-            orderRepository.save(order);
+        order.setShipping_method("Standard Shipping");
+        order.setShipping(7.99);
+        orderRepository.save(order);
         return "redirect:/confirmation";
     }
 }

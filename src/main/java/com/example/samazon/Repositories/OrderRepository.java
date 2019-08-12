@@ -8,5 +8,6 @@ import java.util.ArrayList;
 
 public interface OrderRepository extends CrudRepository<Order, Long> {
     Order findByUser(User user);
+
     Order findByUserAndOrdered(User user, int ordered);
 }

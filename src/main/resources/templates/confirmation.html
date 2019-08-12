@@ -3,42 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Order Confirmation</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
 
     <style>
         .price {
             font-family: sans-serif;
 
         }
+
         .text {
             font-family: sans-serif;
             font-size: 14px;
         }
+
         .greeting {
             font-family: sans-serif;
         }
-        .header{
+
+        .header {
             font-family: sans-serif;
             font-size: 18px;
         }
-        .title{
+
+        .title {
             font-family: sans-serif;
         }
-        #legalCopy{
+
+        #legalCopy {
             font-family: sans-serif;
             font-size: 12px;
 
 
         }
-        .signature{
+
+        .signature {
             font-family: sans-serif;
         }
-        #closing{
-            font-family:sans-serif;
+
+        #closing {
+            font-family: sans-serif;
         }
-        #footer{
-            max-width:580px;
-            margin:0 auto;;
+
+        #footer {
+            max-width: 580px;
+            margin: 0 auto;;
         }
     </style>
 </head>
@@ -56,8 +65,12 @@
                     <tbody>
                     <tr>
                         <!--               Samazon Logo -->
-                        <td width="250" id="logo"> <a href="/homepage" title="Visit Samazon.com"><img id="samazonLogo" alt="Samazon" src="https://designcrafts.online/wp-content/uploads/2018/02/29-S.png"
-                                                                                                      height="100" width="150"></a> </td>
+                        <td width="250" id="logo"><a href="/homepage" title="Visit Samazon.com"><img id="samazonLogo"
+                                                                                                     alt="Samazon"
+                                                                                                     src="https://designcrafts.online/wp-content/uploads/2018/02/29-S.png"
+                                                                                                     height="100"
+                                                                                                     width="150"></a>
+                        </td>
 
 
                         <td width="250" id="title" valign="top" align="right" padding-left="10">
@@ -65,16 +78,20 @@
                         </td>
                     </tr>
                     </tbody>
-                </table> </td>
+                </table>
+            </td>
         </tr>
 
 
         <!--          GREETING -->
         <tr>
-            <td id="greetingSummary"> <p> </p>
+            <td id="greetingSummary"><p></p>
                 <div class="greeting">
                     Hello <span th:text="${user.firstName} + ' ' + ${user.lastName}"/>,
-                </div><br><p class="text"> Thank you for shopping with us.  We’ll send a confirmation when your item ships. </p> </td>
+                </div>
+                <br>
+                <p class="text"> Thank you for shopping with us. We’ll send a confirmation when your item ships. </p>
+            </td>
         </tr>
 
         <!--          DETAIL AND ORDER -->
@@ -83,7 +100,7 @@
                 <b><p class="text"> Details:</p></b>
                 <p class="title"> Order
                     <a href="/shipping" th:text="${order.id}"></a>
-                </p> </td>
+                </p></td>
         </tr>
 
 
@@ -96,7 +113,7 @@
                     <tr>
                         <!--          DATE AND BUTTON TRAY -->
                         <td style="padding: 11px 40px 20px 18px;">
-                            <p class= "title">
+                            <p class="title">
                                 <span class="title">Arriving:</span>
                                 <br>
                                 <b style="color:#009900;">Thursday, August 8 </b>
@@ -127,9 +144,15 @@
                                         <!--Cost Breakdown Left-->
                                         <table>
                                             <tbody>
-                                            <tr> <td class="text"> Estimated Tax: </td> </tr>
-                                            <tr> <td class="text"> Shipping: </td> </tr>
-                                            <tr> <td class="text"> <b>Order Total:</b> </td> </tr>
+                                            <tr>
+                                                <td class="text"> Estimated Tax:</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text"> Shipping:</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text"><b>Order Total:</b></td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </td>
@@ -138,9 +161,15 @@
                                         <!--Cost Breakdown Right-->
                                         <table>
                                             <tbody>
-                                            <tr> <td class="price"> <span th:text="${order.tax}"/></td> </tr>
-                                            <tr> <td class="price"> <span th:text="${order.shipping}"/></td> </tr>
-                                            <tr> <td class="price"> <b><span th:text="${order.total}"/></b> </td> </tr>
+                                            <tr>
+                                                <td class="price"><span th:text="${order.tax}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="price"><span th:text="${order.shipping}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="price"><b><span th:text="${order.total}"/></b></td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </td>
@@ -157,24 +186,42 @@
                 <table>
                     <tbody id="footer">
                     <tr>
-                        <td id="closing"> <span>We hope to see you again soon.</span> </td>
+                        <td id="closing"><span>We hope to see you again soon.</span></td>
                         <br><br>
                         <span class="signature"><a href="/homepage">Samazon.com</a></span> </td>
                     </tr>
 
                     <tr>
-                        <td id="legalCopy"> <p> The payment for your invoice is processed by Samazon Payments, Inc. P.O. Box 81226 Seattle, Washington 98108-1226. If you need more information, please contact (866) 216-1075 </p> <p> By placing your order, you agree to <a href="/homepage">Samazon.com</a>’s <a href="/homepage">Privacy Notice</a> and <a href="/homepage"> Conditions of Use</a>. Unless otherwise noted, items sold by <a href="/homepage">Samazon.com</a> are subject to sales tax in select states in accordance with the applicable laws of that state. If your order contains one or more items from a seller other than <a href="/homepage">Samazon.com</a>, it may be subject to state and local sales tax, depending upon the seller's business policies and the location of their operations. Learn more about <a href="/homepage">tax and seller information</a>.</p> <p></p> <p>This email was sent from a notification-only address that cannot accept incoming email. Please do not reply to this message.</p> </td>
+                        <td id="legalCopy"><p> The payment for your invoice is processed by Samazon Payments, Inc. P.O.
+                            Box 81226 Seattle, Washington 98108-1226. If you need more information, please contact (866)
+                            216-1075 </p>
+                            <p> By placing your order, you agree to <a href="/homepage">Samazon.com</a>’s <a
+                                    href="/homepage">Privacy Notice</a> and <a href="/homepage"> Conditions of Use</a>.
+                                Unless otherwise noted, items sold by <a href="/homepage">Samazon.com</a> are subject to
+                                sales tax in select states in accordance with the applicable laws of that state. If your
+                                order contains one or more items from a seller other than <a href="/homepage">Samazon.com</a>,
+                                it may be subject to state and local sales tax, depending upon the seller's business
+                                policies and the location of their operations. Learn more about <a href="/homepage">tax
+                                    and seller information</a>.</p>
+                            <p></p>
+                            <p>This email was sent from a notification-only address that cannot accept incoming email.
+                                Please do not reply to this message.</p></td>
                     </tr>
                     </tr>
                     </tbody>
                 </table>
 
 
-
     </table>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
 </div>
 <div th:replace="base::footer"></div>
 </body>

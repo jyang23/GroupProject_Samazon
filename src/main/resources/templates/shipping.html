@@ -4,7 +4,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <style>
     body {
-        background: #F0E5E1 ;
+        background: #F0E5E1;
     }
 
     .container {
@@ -47,13 +47,20 @@
         <hr>
         <div class="row container">
             <h5>Shipping Address:</h5></br>
-            <div class="card m-2" style="width: 17rem;"  th:each="user : ${users}">
+            <div class="card m-2" style="width: 17rem;" th:each="user : ${users}">
                 <label>
-                    <input type="radio" name="ship_address" class="card-input-element" />
+                    <input type="radio" name="ship_address" class="card-input-element"/>
                     <div class="panel panel-default card-input">
-                        <div class="card-header bg-info text-white">Name: <td th:text = "${user.firstName}"/> <td th:text = "${user.lastName}"/></div></br>
+                        <div class="card-header bg-info text-white">Name:
+                            <td th:text="${user.firstName}"/>
+                            <td th:text="${user.lastName}"/>
+                        </div>
+                        </br>
                         <div class="card-body">
-                            <div class="panel-heading">Address: <td th:text = "${user.address}"></div></br>
+                            <div class="panel-heading">Address:
+                                <td th:text="${user.address}">
+                            </div>
+                            </br>
                         </div>
                     </div>
                 </label>
@@ -62,37 +69,39 @@
 
         <div class="row container">
             <h5>Shipping Method:</h5></br>
-<!--            <div class="card m-2" style="width: 17rem;">-->
-<!--                <label>-->
-<!--                    <input type="radio" name="ship_method" class="card-input-element" id="1" value="ship1"/>-->
-<!--                    <div class="panel panel-default card-input">-->
-<!--                        <div class="card-header bg-info text-white">One-Day Shipping</div></br>-->
-<!--                        <div class="card-body">-->
-<!--                            <div class="panel-heading">Get Your Items Delivered TOMORROW</div></br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </label>-->
-<!--            </div>-->
+            <!--            <div class="card m-2" style="width: 17rem;">-->
+            <!--                <label>-->
+            <!--                    <input type="radio" name="ship_method" class="card-input-element" id="1" value="ship1"/>-->
+            <!--                    <div class="panel panel-default card-input">-->
+            <!--                        <div class="card-header bg-info text-white">One-Day Shipping</div></br>-->
+            <!--                        <div class="card-body">-->
+            <!--                            <div class="panel-heading">Get Your Items Delivered TOMORROW</div></br>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </label>-->
+            <!--            </div>-->
 
-<!--            <div class="card m-2" style="width: 17rem;">-->
-<!--                <label>-->
-<!--                    <input type="radio" name="ship_method" class="card-input-element" id="2" value="ship2"/>-->
-<!--                    <div class="panel panel-default card-input">-->
-<!--                        <div class="card-header bg-info text-white">Two-Day Shipping</div></br>-->
-<!--                        <div class="card-body">-->
-<!--                            <div class="panel-heading">Get Your Items Delivered in 2-days</div></br>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </label>-->
-<!--            </div>-->
+            <!--            <div class="card m-2" style="width: 17rem;">-->
+            <!--                <label>-->
+            <!--                    <input type="radio" name="ship_method" class="card-input-element" id="2" value="ship2"/>-->
+            <!--                    <div class="panel panel-default card-input">-->
+            <!--                        <div class="card-header bg-info text-white">Two-Day Shipping</div></br>-->
+            <!--                        <div class="card-body">-->
+            <!--                            <div class="panel-heading">Get Your Items Delivered in 2-days</div></br>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </label>-->
+            <!--            </div>-->
 
             <div class="card m-2" style="width: 17rem;">
                 <label>
                     <input type="radio" name="ship_method" class="card-input-element" id="3" value="ship3"/>
                     <div class="panel panel-default card-input">
-                        <div class="card-header bg-info text-white">Standard Shipping</div></br>
+                        <div class="card-header bg-info text-white">Standard Shipping</div>
+                        </br>
                         <div class="card-body">
-                            <div class="panel-heading">Get Your Items Delivered in 3-5 Business Days</div></br>
+                            <div class="panel-heading">Get Your Items Delivered in 3-5 Business Days</div>
+                            </br>
                         </div>
                     </div>
                 </label>
@@ -101,20 +110,27 @@
 
         <div class="row container">
             <h5>Payment Method:</h5></br>
-            <div class="card m-2" style="width: 17rem;"  th:each="user : ${users}">
+            <div class="card m-2" style="width: 17rem;" th:each="user : ${users}">
                 <label>
-                    <input type="radio" name="ship_payment" class="card-input-element" />
+                    <input type="radio" name="ship_payment" class="card-input-element"/>
                     <div class="panel panel-default card-input">
-                        <div class="card-header bg-info text-white">Name: <td th:text = "${user.firstName}"/> <td th:text = "${user.lastName}"/></div></br>
+                        <div class="card-header bg-info text-white">Name:
+                            <td th:text="${user.firstName}"/>
+                            <td th:text="${user.lastName}"/>
+                        </div>
+                        </br>
                         <div class="card-body">
-                            <div class="panel-heading">Payment: <td th:text = "${user.creditCard}"></div></br>
+                            <div class="panel-heading">Payment:
+                                <td th:text="${user.creditCard}">
+                            </div>
+                            </br>
                         </div>
                     </div>
                 </label>
             </div>
         </div>
         <button type="submit" class="btn btn-primary" value="Submit" style="float: right;">Confirm Choices</button>
-        <input type = "hidden" name="result" id="result"/>
+        <input type="hidden" name="result" id="result"/>
     </form>
 </div>
 
@@ -125,10 +141,10 @@
     function displayRadioValue() {
         var x = document.getElementsByName('ship_method');
 
-        for(i = 0; i < x.length; i++) {
-            if(x[i].checked)
+        for (i = 0; i < x.length; i++) {
+            if (x[i].checked)
                 document.getElementById("result").innerHTML
-                    =x[i].value;
+                    = x[i].value;
         }
     }
 </script>

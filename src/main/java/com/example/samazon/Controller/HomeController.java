@@ -16,5 +16,5 @@ public class HomeController {
     public String listCourses(Model model) {
         return "index";
     }
-    }
+}
 

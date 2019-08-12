@@ -48,12 +48,12 @@ public class JosephController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String processRegistrationPage(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
         model.addAttribute("user", user);
-        if (result.hasErrors()){
+        if (result.hasErrors()) {
             return "registration";
         } else {
             user.setRoles(Arrays.asList(roleRepository.findByRole("USER")));
             userRepository.save(user);
-            model.addAttribute("created",  true);
+            model.addAttribute("created", true);
         }
         return "login";
     }
@@ -66,7 +66,7 @@ public class JosephController {
 
     @RequestMapping("/finalize")
     public String finalize(Principal principal, Model model) {
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         for (History history : historyRepository.findAllByUserAndStatus(user, 0)) {
             history.setStatus(1);
             historyRepository.save(history);
@@ -88,7 +88,7 @@ public class JosephController {
             }
         }
         model.addAttribute("list", products);
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         model.addAttribute("user", user);
         return "show";
     }
@@ -96,7 +96,7 @@ public class JosephController {
     @RequestMapping("/addCart/{id}")
     public String add(@PathVariable("id") long id, Principal principal, Model model) {
         model.addAttribute("list", productRepository.findAll());
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         model.addAttribute("user", user);
 
         History history = new History();
@@ -110,7 +110,7 @@ public class JosephController {
 
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable("id") long id, Principal principal, Model model) {
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         model.addAttribute("user", user);
 
         ArrayList<History> historyList = historyRepository.findAllByProductId(id);
@@ -122,16 +122,16 @@ public class JosephController {
     }
 
     @RequestMapping("/cart")
-    public String myCart( Principal principal, Model model) {
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+    public String myCart(Principal principal, Model model) {
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         model.addAttribute("user", user);
         ArrayList<History> historyList = historyRepository.findAllByUserAndStatus(user, 0);
         return addToCart(model, historyList);
     }
 
     @RequestMapping("/checkout")
-    public String checkout( Principal principal, Model model) {
-        User user = ((CustomUserDetails)((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
+    public String checkout(Principal principal, Model model) {
+        User user = ((CustomUserDetails) ((UsernamePasswordAuthenticationToken) principal).getPrincipal()).getUser();
         model.addAttribute("user", user);
         model.addAttribute("users", user);
         Order toDelete = orderRepository.findByUserAndOrdered(user, 0);

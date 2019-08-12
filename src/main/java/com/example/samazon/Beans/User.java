@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name="User_Data")
+@Table(name = "User_Data")
 public class User {
 
     @Id
@@ -40,7 +40,7 @@ public class User {
     private Collection<Order> orders;
 
     public User(String firstName, String lastName, String email, String username, String password, String address,
-            String creditCard) {
+                String creditCard) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name="History_Data")
+@Table(name = "History_Data")
 public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
